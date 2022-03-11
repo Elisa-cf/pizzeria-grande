@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Menu from './components/Menu';
 import About from './components/About';
 import Contact from './components/Contact';
+import ErrorPage from './components/ErrorPage';
 
 function App() {
   return (
@@ -17,11 +18,14 @@ function App() {
         <Route  path='/menu'>
           <Menu />
         </Route>
-        <Route exact path='/about'>
+        <Route path='/about'>
           <About />
         </Route>
-        <Route exact path='/contact'>
+        <Route path='/contact'>
           <Contact />
+        </Route>
+        <Route path='/*'>
+          <ErrorPage />
         </Route>
      </Switch>
     </main>
