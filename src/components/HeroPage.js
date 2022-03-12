@@ -12,7 +12,7 @@ const HeroPage = () => {
         <HeroItems>
           <HeroH1>Authentic Italian Pizza</HeroH1>
           <HeroH3>In the heart of Munich</HeroH3>
-          <HeroBtn>Place Order</HeroBtn>
+          <HeroBtn className='btn'>order now</HeroBtn>
         </HeroItems>
       </HeroContent>
     </HeroContainer>
@@ -65,7 +65,10 @@ const HeroH3 = styled.h3`
 
 const HeroBtn = styled.button`
 font-size: 1.2rem;
-padding: 0.5rem 2rem;
+text-transform: uppercase;
+font-family: 'Cormorant Upright', serif;
+font-weight: bold;
+padding: 0.5rem 1.8rem;
 border: none;
 background: #03c03c;
 color: #fff;
