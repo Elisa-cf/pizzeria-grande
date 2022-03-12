@@ -18,7 +18,7 @@ const Wrapper = styled.footer`
   background: #0b1015;
   text-align: center;
   span {
-    color: #03c03c;
+    color: #e9ba23;
   }
   h5 {
     color: white;
