@@ -1,16 +1,16 @@
 import './App.css';
 import { Switch, Route } from 'react-router-dom';
-import Home from './components/Home';
-import Menu from './components/Menu';
-import About from './components/About';
-import Contact from './components/Contact';
-import NavBar from './components/NavBar';
+import Home from './pages/Home';
+import Menu from './pages/Menu';
+import About from './pages/About';
+import Contact from './pages/Contact';
 import ErrorPage from './components/ErrorPage';
+
+
 
 function App() {
   return (
     <main className="App">
-     <NavBar/>
      <Switch>
        <Route exact path='/'>
           <Home />
