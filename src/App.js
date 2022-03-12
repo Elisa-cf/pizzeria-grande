@@ -5,6 +5,7 @@ import Menu from './pages/Menu';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import ErrorPage from './components/ErrorPage';
+import Footer from './components/Footer';
 
 
 
@@ -28,6 +29,7 @@ function App() {
           <ErrorPage />
         </Route>
      </Switch>
+     <Footer/>
     </main>
   );
 }
