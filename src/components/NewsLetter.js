@@ -12,13 +12,13 @@ const NewsLetter = () => {
    >
     <input type="email" className='form-input' placeholder="enter email"
      name="_replyto" />
-    <button type="submit" className='submit-btn'>subscribe</button>
+    <button type="submit" className='btn submit-btn'>subscribe</button>
    </form>
   </div>
  </div></Wrapper>
 }
 const Wrapper = styled.section`
-  padding: 2rem 0;
+  padding-bottom: 2rem;
   h2 {
     text-transform: none;
   }
@@ -43,15 +43,15 @@ const Wrapper = styled.section`
     border-top-left-radius: 0.25rem;;
     border-bottom-left-radius: 0.25rem;;
   }
-  .submit-btn {
-    border-top-right-radius: 0.25rem;;
-    border-bottom-right-radius: 0.25rem;;
-  }
   .form-input::placeholder {
     color: #0b1015;
     text-transform: capitalize;
   }
   .submit-btn {
+    border-top-right-radius: 0.25rem;;
+    border-bottom-right-radius: 0.25rem;
+    font-family: 'Cormorant Upright', serif;
+    font-weight: bold;
     background: #03c03c;
     text-transform: uppercase;
     letter-spacing:  0.1rem;;
@@ -62,7 +62,7 @@ const Wrapper = styled.section`
   }
   .submit-btn:hover {
    background-color: #ffc500;
-    color: #0b1015;
+   color: #0b1015;
   }
   @media (min-width: 900px) {
     .content {
