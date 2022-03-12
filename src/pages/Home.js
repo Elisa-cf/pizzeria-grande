@@ -2,6 +2,7 @@ import React from 'react'
 import HeroPage from '../components/HeroPage'
 import Quote from '../components/Quote'
 import IntroResto from '../components/IntroResto'
+import NewsLetter from '../components/NewsLetter'
 
 const Home = () => {
   return (
@@ -9,6 +10,7 @@ const Home = () => {
       <HeroPage />
       <Quote />
       <IntroResto/>
+      <NewsLetter/>
     </>
   )
 }
