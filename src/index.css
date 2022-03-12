@@ -7,20 +7,191 @@ Global Styles
 *,
 ::after,
 ::before {
-  margin: 0;
-  padding: 0;
+  margin: 0; 
+  padding: 0; 
   box-sizing: border-box;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Cormorant Upright', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+   background-color: white;  
+ 
+}
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  letter-spacing: 0.1rem;
+  text-transform: capitalize;
+  line-height: 1.25; 
+}
+h1 {
+  font-size: 2.5rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.5rem;
+}
+h4 {
+  font-size: 1.25rem;
+}
+h5 {
+  font-size: 0.875rem;
+}
+p {
+  margin-bottom: 1.25rem; 
+  color: #0b1015;
+  font-weight: 500;
+  line-height: 2;
+  font-size: 1.2rem;
+}
+@media screen and (min-width: 800px) {
+  h1 {
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 2rem;
+  }
+  h4 {
+    font-size: 1.5rem;
+  }
+  h5 {
+    font-size: 1rem;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1;
+  }
+  p {
+  font-size: 1.4rem;
+}
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* GLOBAL CLASSES */
+/* section */
+.section {
+  padding: 5rem 0;
+}
+.section-center {
+  width: 90vw;
+  margin: 0 auto;
+   max-width: 1170px;
+}
+
+.btn {
+  text-transform: uppercase;
+  background: #03c03c;
+  padding: 0.8rem 1rem;
+  color: white;
+  letter-spacing:  0.1rem;
+  display: inline-block;
+  font-weight: 400;
+  transition: all 0.3s linear;
+  font-size: 0.875rem; 
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  border-color: transparent;
+}
+.btn:hover {
+  color: #0b1015;
+  background: #ffc500;
+}
+
+/* NAVBAR */
+
+.nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+.nav-toggle {
+  font-size: 2rem;
+  color: white;
+  background: transparent;
+  border-color: transparent;
+  transition: all 0.3s linear;;
+  cursor: pointer;
+}
+.nav-toggle:hover {
+  color: white;
+  transform: rotate(90deg);
+}
+.links a {
+  font-size: 19px;
+  text-transform: capitalize;
+  letter-spacing: .1rem;
+  display: block;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s linear;
+  color: white;
+  font-weight: bold;
+} 
+.links a:hover {
+  color: white;
+  padding-left: 1.5rem;
+}
+
+.links a:visited{
+    list-style: none;
+}
+
+.links-container {
+  height: 0;
+  overflow: hidden;
+  transition: all 0.3s linear;
+}
+.show-container {
+  height: 10rem;
+}
+
+
+@media screen and (min-width: 800px) {
+  .main-nav {
+    max-width: 1170px;
+     margin: 0 auto; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem; 
+  }
+  .nav-header {
+    padding: 0;
+  }
+  .nav-toggle {
+    display: none;
+  }
+  .links-container {
+    height: auto !important;
+  }
+  .links {
+    display: flex;
+     list-style: none;
+  }
+  .links a {
+    padding: 0;
+    margin: 0 0.5rem;
+    text-decoration: none;
+    font-size: 25px;
+  }
+  .links a:hover {
+    padding: 0;
+    background: transparent;
+  }
 }
