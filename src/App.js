@@ -4,10 +4,9 @@ import Home from './pages/Home';
 import Menu from './pages/Menu';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import Cart from './pages/Cart';
 import ErrorPage from './components/ErrorPage';
 import Footer from './components/Footer';
-
-
 
 function App() {
   return (
@@ -25,12 +24,16 @@ function App() {
         <Route path='/contact'>
           <Contact />
         </Route>
+        <Route path='/cart'>
+          <Cart />
+        </Route>
         <Route path='/*'>
           <ErrorPage />
         </Route>
      </Switch>
      <Footer/>
     </main>
+
   );
 }
 
