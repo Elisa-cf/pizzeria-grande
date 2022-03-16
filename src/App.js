@@ -1,5 +1,8 @@
+import React from 'react';
 import './App.css';
 import { Switch, Route } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import items from './assets/data';
 import Home from './pages/Home';
 import Menu from './pages/Menu';
 import About from './pages/About';
@@ -9,14 +12,46 @@ import ErrorPage from './components/ErrorPage';
 import Footer from './components/Footer';
 
 function App() {
+  const [cartItems, setCartItems] = useState(items);
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  const handleClearCart = () => {
+    setCartItems([]);
+  }
+
+  const handleAddProduct = (index) => {
+    setCartItems(prevState => {
+      const newCart = prevState;
+      newCart[index].quantity = newCart[index].quantity ? (newCart[index].quantity + 1) : 1;
+      return newCart;
+    })
+  }
+
+  const handleRemoveProduct = (index) => {
+    setCartItems(prevState => {
+      const newCart = prevState;
+      newCart[index].quantity = 0;
+      return newCart;
+    })
+  }
+
+  useEffect(() => {
+    const newTotalPrice = cartItems.filter(item => item.quantity).reduce((item) => item.quantity * item.price, 0)
+    setTotalPrice(newTotalPrice)
+  }, [cartItems])
+
   return (
     <main className="App">
-     <Switch>
-       <Route exact path='/'>
+      <Switch>
+        <Route exact path='/'>
           <Home />
-       </Route>
-        <Route  path='/menu'>
-          <Menu />
+        </Route>
+        <Route path='/menu'>
+          <Menu
+            cartItems={cartItems}
+            handleAddProduct={handleAddProduct}
+            handleRemoveProduct={handleRemoveProduct}
+          />
         </Route>
         <Route path='/about'>
           <About />
@@ -25,13 +60,17 @@ function App() {
           <Contact />
         </Route>
         <Route path='/cart'>
-          <Cart />
+          <Cart
+            cartItems={cartItems}
+            handleClearCart={handleClearCart}
+            totalPrice={totalPrice}
+          />
         </Route>
         <Route path='/*'>
           <ErrorPage />
         </Route>
-     </Switch>
-     <Footer/>
+      </Switch>
+      <Footer />
     </main>
 
   );
