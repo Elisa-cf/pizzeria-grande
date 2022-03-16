@@ -1,8 +1,16 @@
-import React from 'react'
+import FindUs from '../components/FindUs';
+import NavBar from '../components/NavBar';
+import ContactIcons from '../components/ContactIcons';
+import NewsLetter from '../components/NewsLetter';
 
 const Contact = () => {
   return (
-    <div>Contact</div>
+    <>
+      <NavBar />
+      <FindUs />
+      <ContactIcons />
+      <NewsLetter />
+    </>
   )
 }
 
