@@ -1,8 +1,8 @@
-import React from 'react';
 import { useState, useRef, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { FaBars } from 'react-icons/fa';
+import NavBarButtons from './NavBarButtons';
 
 const Navbar = () => {
   const [showLinks, setShowLinks] = useState(false);
@@ -20,42 +20,127 @@ const Navbar = () => {
     }
   }, [showLinks]);
   return (
-    <nav>
+    <NavContainer>
       <div className='main-nav'>
         <div className='nav-header'>
-          <NavLinkLogo to='/' className='logo'>Pizzeria GRANDE</NavLinkLogo>
-      <button className='nav-toggle' onClick={toggleLinks}>< FaBars /></button>
+          <NavLinkLogo to='/' className='logo'>Pizzeria grande</NavLinkLogo>
+          <button className='nav-toggle' onClick={toggleLinks}>< FaBars /></button>
         </div>
-      <div className='links-container' ref={linksContainerRef}>
-        <ul className='links' ref={linksRef}>
+        <div className='links-container' ref={linksContainerRef}>
+          <ul className='links' ref={linksRef}>
             <li><NavLink to='/'>Home</NavLink></li>
-            <li><NavLink to='/menu'>Our Menu</NavLink></li>
-            <li><NavLink to='/about'>About us</NavLink></li>
+            <li><NavLink to='/menu'>Menu</NavLink></li>
+            <li><NavLink to='/about'>About</NavLink></li>
             <li><NavLink to='/contact'>Contact</NavLink></li>
-     </ul>
+            <li><NavLink to='/cart'>Checkout</NavLink></li>
+          </ul>
+        </div>
+        <NavBarButtons />
       </div>
-      </div>
-    </nav>
+    </NavContainer>
   )
 }
 
-
+const NavContainer = styled.nav`
+.main-nav{
+  background: rgba(11,16,21,0.8);
+}
+.nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+.nav-toggle {
+  font-size: 2rem;
+  color: white;
+  background: transparent;
+  border-color: transparent;
+  transition: all 0.3s linear;
+  cursor: pointer;
+}
+.nav-toggle:hover {
+  color: white;
+  transform: rotate(90deg);
+}
+.links a {
+  font-size: 19px;
+  text-transform: capitalize;
+  letter-spacing: .1rem;
+  display: block;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s linear;
+  color: white;
+  font-weight: bold;
+}
+.links a:hover {
+  color: white;
+  padding-left: 1.5rem;
+}
+.links a:visited{
+  list-style: none;
+}
+.links-container {
+  height: 1;
+  overflow: hidden;
+  transition: all 0.3s linear;
+}
+.show-container {
+  height: 10rem;
+}
+.cart-btn-wrapper {
+  display: none;
+}
+  @media screen and (min-width: 800px) {
+    .main-nav {
+      margin: 0 auto;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-evenly;
+      padding: 1rem;
+    }
+    .nav-header {
+      padding: 0;
+    }
+    .nav-toggle {
+      display: none;
+    }
+    .links-container {
+      height: auto !important;
+    }
+    .links {
+      display: flex;
+      list-style: none;
+    }
+    .links a {
+      padding: 0;
+      margin: 0 0.5rem;
+      text-decoration: none;
+      font-size: 25px
+    }
+    .links a:hover {
+      padding: 0;
+      background: transparent;
+    }
+    .cart-btn-wrapper {
+      display: flex;
+      align-items: center;
+    }
+  }
+`
 const NavLinkLogo = styled(NavLink)`
 text-decoration: none;
+text-transform: capitalize;
 height: 40px;
 font-family: 'Playball', cursive;
-text-decoration: none; 
 font-size: 1.8rem;
 color: white;
-
+ 
 @media screen and (min-width: 450px){
-font-size: 2.3rem;
+  font-size: 2.3rem;
 }
-
- @media screen and (min-width: 800px){
-font-size: 2.8rem;
+@media screen and (min-width: 800px){
+  font-size: 2.8rem;
 }
 `
-
-
 export default Navbar
