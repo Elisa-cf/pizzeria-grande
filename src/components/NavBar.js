@@ -32,10 +32,10 @@ const Navbar = () => {
             <li><NavLink to='/menu'>Menu</NavLink></li>
             <li><NavLink to='/about'>About</NavLink></li>
             <li><NavLink to='/contact'>Contact</NavLink></li>
-            <li><NavLink to='/cart'>Checkout</NavLink></li>
+           <li><NavLink to='/cart'>Cart</NavLink></li>  
           </ul>
         </div>
-        <NavBarButtons />
+         <NavBarButtons/> 
       </div>
     </NavContainer>
   )
@@ -91,12 +91,11 @@ const NavContainer = styled.nav`
 .cart-btn-wrapper {
   display: none;
 }
-  @media screen and (min-width: 800px) {
+  @media screen and (min-width: 900px) {
     .main-nav {
-      margin: 0 auto;
-      display: flex;
-      align-items: baseline;
-      justify-content: space-evenly;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
       padding: 1rem;
     }
     .nav-header {
@@ -110,10 +109,12 @@ const NavContainer = styled.nav`
     }
     .links {
       display: flex;
+      justify-content: center;
+      text-align: center;
       list-style: none;
     }
     .links a {
-      padding: 0;
+      padding: 0.5rem;
       margin: 0 0.5rem;
       text-decoration: none;
       font-size: 25px
@@ -124,14 +125,17 @@ const NavContainer = styled.nav`
     }
     .cart-btn-wrapper {
       display: flex;
-      align-items: center;
+      align-items: stretch;
+      justify-items: start;
     }
   }
 `
 const NavLinkLogo = styled(NavLink)`
+display: flex;
+align-items: center;
 text-decoration: none;
 text-transform: capitalize;
-height: 40px;
+
 font-family: 'Playball', cursive;
 font-size: 1.8rem;
 color: white;
@@ -139,8 +143,9 @@ color: white;
 @media screen and (min-width: 450px){
   font-size: 2.3rem;
 }
-@media screen and (min-width: 800px){
+@media screen and (min-width: 1000px){
   font-size: 2.8rem;
 }
 `
+
 export default Navbar

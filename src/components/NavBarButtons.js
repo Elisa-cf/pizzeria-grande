@@ -19,13 +19,13 @@ const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  width: 225px;
   gap: 1.5rem;
   .cart-btn {
     color: white;
     font-size: 1.5rem;
     letter-spacing: 0.1rem;
     display: flex;
+
     align-items: center;
   }
   .cart-container {
@@ -57,6 +57,14 @@ const Wrapper = styled.div`
     cursor: pointer;
     color: white;
     letter-spacing: 0.1rem;
+  }
+  @media screen and (min-width: 850px){
+    .cart-container{
+      font-size:1.7rem;
+    }
+    .auth-btn{
+      font-size:1.7rem;
+    }
   }
 `
 
