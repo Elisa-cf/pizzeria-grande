@@ -10,13 +10,14 @@ import Contact from './pages/Contact';
 import Cart from './pages/Cart';
 import ErrorPage from './components/ErrorPage';
 import Footer from './components/Footer';
+import * as deepcopy from 'deepcopy';
 
 function App() {
-  const [cartItems, setCartItems] = useState(items);
+  const [cartItems, setCartItems] = useState(deepcopy(items));
   const [totalPrice, setTotalPrice] = useState(0);
 
   const handleClearCart = () => {
-    setCartItems([]);
+    setCartItems(deepcopy(items));
   }
 
   const handleAddProduct = (index) => {
