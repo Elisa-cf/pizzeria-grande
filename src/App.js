@@ -8,6 +8,7 @@ import Menu from './pages/Menu';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Cart from './pages/Cart';
+import CheckOut from './pages/CheckOut';
 import ErrorPage from './components/ErrorPage';
 import Footer from './components/Footer';
 import * as deepcopy from 'deepcopy';
@@ -37,9 +38,9 @@ function App() {
   const [cartItems, setCartItems] = useState(loadedCartItems);
   const [totalPrice, setTotalPrice] = useState(0);
 
-  const handleClearCart = () => {
-    setCartItems([deepcopy(items)]);
-  }
+  // const handleClearCart = () => {
+  //   setCartItems([deepcopy(items)]);
+  // }
 
   const handleAddProduct = (index) => {
     setCartItems(prevState => {
@@ -85,9 +86,13 @@ function App() {
         <Route path='/cart'>
           <Cart
             cartItems={cartItems}
-            handleClearCart={handleClearCart}
+            // handleClearCart={handleClearCart}
             totalPrice={totalPrice}
             loadedCartItems={loadedCartItems}
+          />
+        </Route>
+        <Route path='/checkout'>
+          <CheckOut
           />
         </Route>
         <Route path='/*'>
