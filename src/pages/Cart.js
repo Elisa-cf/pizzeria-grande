@@ -3,10 +3,10 @@ import NavBar from '../components/NavBar';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const Cart = ({ cartItems, handleClearCart, totalPrice }) => {
+const Cart = ({ cartItems, handleClearCart, totalPrice, loadedCartItems }) => {
   return (
     <>
-      <NavBar />
+      <NavBar loadedCartItems={loadedCartItems}/>
       <Wrapper>
         {cartItems.filter(item => item.quantity).map((item) => (
           <div key={item.id} className="test">
@@ -21,11 +21,13 @@ const Cart = ({ cartItems, handleClearCart, totalPrice }) => {
         <div className='link-container'>
           <h3>Total price: {totalPrice}€</h3></div>
         <div className='link-container'>
-          <Link to='/menu' className='link-btn'>
+          <button onClick={loadedCartItems} className='btn'>
+            <Link to='/menu'>
             order more
           </Link>
+          </button> 
           {cartItems.length >= 1 && (
-            <button className='btn' onClick={handleClearCart}>clear cart</button>
+            <button className='btn' onClick={handleClearCart}>checkout</button>
           )}
           {cartItems.length === 0 && <h2>Your order is empty</h2>}
         </div>
@@ -66,25 +68,6 @@ const Wrapper = styled.section`
     justify-content: space-around;
     margin-top: 2rem;
   }
-  .link-btn {
-    background: transparent;
-    border-color: transparent;
-    text-transform: uppercase;
-    padding 0.8rem 1rem;
-    background: #03c03c;
-    color: white;
-    font-weight: bold;
-    letter-spacing: 0.1rem;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  .link-btn:hover{
-    color: #0b1015;
-    background: #ffc500;
-  }
-  .btn{
-    font-size:17px;
-  }
   @media screen and (min-width: 800px){
    .test{
      display: flex;
@@ -98,4 +81,5 @@ const Wrapper = styled.section`
     padding: 4rem;
   }
 `
+
 export default Cart
