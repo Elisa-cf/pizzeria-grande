@@ -6,7 +6,7 @@ import NavBar from './NavBar';
 const HeroPage = () => {
   return (
     <HeroContainer>
-      <NavBar />
+     <NavBar /> 
       <HeroContent>
         <HeroItems>
           <HeroH1>Authentic Italian Pizza</HeroH1>
