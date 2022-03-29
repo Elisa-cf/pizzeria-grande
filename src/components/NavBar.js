@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { FaBars } from 'react-icons/fa';
 import NavBarButtons from './NavBarButtons';
 
-const Navbar = () => {
+const Navbar = ({loadedCartItems}) => {
   const [showLinks, setShowLinks] = useState(false);
   const linksContainerRef = useRef(null);
   const linksRef = useRef(null);
@@ -29,7 +29,7 @@ const Navbar = () => {
         <div className='links-container' ref={linksContainerRef}>
           <ul className='links' ref={linksRef}>
             <li><NavLink to='/'>Home</NavLink></li>
-            <li><NavLink to='/menu'>Menu</NavLink></li>
+            <li onClick={loadedCartItems}><NavLink to='/menu'>Menu</NavLink></li>
             <li><NavLink to='/about'>About</NavLink></li>
             <li><NavLink to='/contact'>Contact</NavLink></li>
            <li><NavLink to='/cart'>Cart</NavLink></li>  
