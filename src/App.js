@@ -13,7 +13,7 @@ import Footer from './components/Footer';
 import * as deepcopy from 'deepcopy';
 
 function loadCartItemsFromLocalStorage(items) {
-  const itemQuantity = JSON.parse(localStorage.getItem('cartItemQuantity'));
+  const itemQuantity = JSON.parse(sessionStorage.getItem('cartItemQuantity'));
   if (!itemQuantity) return items
   for (let index = 0; index < items.length; index++) {
     if (itemQuantity[index]) {
@@ -29,7 +29,7 @@ function saveCartItemsToLocalstorage(cartItems) {
     const item = cartItems[index];
     itemQuantity[index] = item.quantity || 0
   }
-  localStorage.setItem('cartItemQuantity', JSON.stringify(itemQuantity));
+  sessionStorage.setItem('cartItemQuantity', JSON.stringify(itemQuantity));
 }
 
 function App() {
@@ -38,7 +38,7 @@ function App() {
   const [totalPrice, setTotalPrice] = useState(0);
 
   const handleClearCart = () => {
-    setCartItems(deepcopy(items));
+    setCartItems([deepcopy(items)]);
   }
 
   const handleAddProduct = (index) => {
@@ -87,6 +87,7 @@ function App() {
             cartItems={cartItems}
             handleClearCart={handleClearCart}
             totalPrice={totalPrice}
+            loadedCartItems={loadedCartItems}
           />
         </Route>
         <Route path='/*'>
