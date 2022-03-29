@@ -21,15 +21,18 @@ const Cart = ({ cartItems, handleClearCart, totalPrice, loadedCartItems }) => {
         <div className='link-container'>
           <h3>Total price: {totalPrice}€</h3></div>
         <div className='link-container'>
+          <Link to='/menu'>
           <button onClick={loadedCartItems} className='btn'>
-            <Link to='/menu'>
             order more
-          </Link>
           </button> 
-          {cartItems.length >= 1 && (
+          </Link>
+          <Link to='/checkout'>
+          <button className='btn'>checkout</button>
+          </Link>
+          {/* {cartItems.length >= 1 && (
             <button className='btn' onClick={handleClearCart}>checkout</button>
           )}
-          {cartItems.length === 0 && <h2>Your order is empty</h2>}
+          {cartItems.length === 0 && <h2>Your order is empty</h2>} */}
         </div>
       </Wrapper>
     </>
