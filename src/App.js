@@ -14,7 +14,7 @@ import Footer from './components/Footer';
 import * as deepcopy from 'deepcopy';
 
 function loadCartItemsFromLocalStorage(items) {
-  const itemQuantity = JSON.parse(sessionStorage.getItem('cartItemQuantity'));
+  const itemQuantity = JSON.parse(sessionStorage.getItem('cartitemQuantity'));
   if (!itemQuantity) return items
   for (let index = 0; index < items.length; index++) {
     if (itemQuantity[index]) {
@@ -30,7 +30,7 @@ function saveCartItemsToLocalstorage(cartItems) {
     const item = cartItems[index];
     itemQuantity[index] = item.quantity || 0
   }
-  sessionStorage.setItem('cartItemQuantity', JSON.stringify(itemQuantity));
+  sessionStorage.setItem('cartitemQuantity', JSON.stringify(itemQuantity));
 }
 
 function App() {
