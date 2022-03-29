@@ -10,19 +10,42 @@ import Contact from './pages/Contact';
 import Cart from './pages/Cart';
 import ErrorPage from './components/ErrorPage';
 import Footer from './components/Footer';
+import * as deepcopy from 'deepcopy';
+
+function loadCartItemsFromLocalStorage(items) {
+  const itemQuantity = JSON.parse(localStorage.getItem('cartItemQuantity'));
+  if (!itemQuantity) return items
+  for (let index = 0; index < items.length; index++) {
+    if (itemQuantity[index]) {
+      items[index].quantity = itemQuantity[index]
+    }
+  }
+  return items
+}
+
+function saveCartItemsToLocalstorage(cartItems) {
+  const itemQuantity = {};
+  for (let index = 0; index < cartItems.length; index++) {
+    const item = cartItems[index];
+    itemQuantity[index] = item.quantity || 0
+  }
+  localStorage.setItem('cartItemQuantity', JSON.stringify(itemQuantity));
+}
 
 function App() {
-  const [cartItems, setCartItems] = useState(items);
+  const loadedCartItems = loadCartItemsFromLocalStorage(deepcopy(items));
+  const [cartItems, setCartItems] = useState(loadedCartItems);
   const [totalPrice, setTotalPrice] = useState(0);
 
   const handleClearCart = () => {
-    setCartItems([]);
+    setCartItems(deepcopy(items));
   }
 
   const handleAddProduct = (index) => {
     setCartItems(prevState => {
       const newCart = prevState;
       newCart[index].quantity = newCart[index].quantity ? (newCart[index].quantity + 1) : 1;
+      saveCartItemsToLocalstorage(newCart)
       return newCart;
     })
   }
