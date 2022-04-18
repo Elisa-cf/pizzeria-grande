@@ -8,7 +8,7 @@ const allCategories = ['all', ...new Set(items.map((item) => item.category))];
 console.log(allCategories);
 
 function Menu({ handleAddProduct, handleRemoveProduct, cartItems, setCartItems }) {
-  const [categories, setCategories] = useState(allCategories);
+  // const [categories, setCategories] = useState(allCategories);
   const [selectedCategory, setSelectedCategory] = useState("all");
 
   return (
